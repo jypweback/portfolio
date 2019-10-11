@@ -1,4 +1,4 @@
-package com.jypweback.portfolio.controller;
+package com.jypweback.portfolio.controller.api;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
