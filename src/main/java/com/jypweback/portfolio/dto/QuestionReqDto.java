@@ -20,4 +20,6 @@ public class QuestionReqDto {
         return Question.builder().title(this.title).author(this.author).content(this.content).build();
     }
 
+
+
 }
