@@ -19,7 +19,4 @@ public class QuestionReqDto {
     public Question toEntity(){
         return Question.builder().title(this.title).author(this.author).content(this.content).build();
     }
-
-
-
 }

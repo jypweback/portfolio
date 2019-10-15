@@ -1,4 +1,5 @@
 spring:
+
   profiles:
     active: local
 
@@ -17,6 +18,20 @@ spring:
     console:
       enabled: true
 
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  thymeleaf:
+    cache : false
+
+logging:
+  level:
+    org:
+      hibernate:
+        type : trace
 ---
 
 spring:
@@ -27,3 +42,12 @@ spring:
       username: root
       password: 1234
       driverClassName: org.mariadb.jdbc.Driver
+
+logging:
+  level:
+    org:
+      hibernate:
+        type : trace
+
+
+
