@@ -16,6 +16,7 @@ public class AccountAddRunner implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
+        /*
         MemberDto memberDto = new MemberDto();
         memberDto.setUserId("jypweback");
         memberDto.setUserPassword("1234");
@@ -23,6 +24,7 @@ public class AccountAddRunner implements ApplicationRunner {
         memberDto = memberService.createMember(memberDto);
 
         System.out.println("Application Runner : " + memberDto.getUserId() + " " + memberDto.getUserPassword());
+        */
 
     }
 }

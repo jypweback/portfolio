@@ -1,36 +1,17 @@
+# Test
 spring:
- profiles:
-    active: local
+  profiles:
+    active: local # 기본 환경 선택
 
+# local 환경
 ---
-
 spring:
   profiles: local
-  datasource:
-    hikari:
-      jdbc-url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-      username: sa
-      password:
-      driver-class-name: org.h2.Driver
-
-  h2:
-    console:
-      enabled: true
-
   jpa:
     show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
-
-  devtools:
-    livereload:
-      enabled: true
-    freemarker:
-      cache: false
 
   thymeleaf:
-    cache : false
+    cache: false
 
 logging:
   level:
