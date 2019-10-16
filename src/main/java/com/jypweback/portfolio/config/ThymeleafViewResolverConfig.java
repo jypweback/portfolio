@@ -1,9 +1,8 @@
 package com.jypweback.portfolio.config;
 
-import org.h2.server.web.WebServlet;
+import nz.net.ultraq.thymeleaf.LayoutDialect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,6 +10,7 @@ import org.springframework.web.servlet.ViewResolver;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
+
 
 @Configuration
 public class ThymeleafViewResolverConfig {
@@ -33,15 +33,15 @@ public class ThymeleafViewResolverConfig {
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
         templateEngine.setTemplateResolver(templateResolver());
         templateEngine.setTemplateEngineMessageSource(messageSource);
-        //templateEngine.addDialect(layoutDialect());
+        templateEngine.addDialect(layoutDialect());
 
         return templateEngine;
     }
-/*
+
     @Bean
     public LayoutDialect layoutDialect() {
         return new LayoutDialect();
-    }*/
+    }
 
     @Bean
     @Autowired

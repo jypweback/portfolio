@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{template/main-template.html}">
+
+<head>
+  <title>GuestBook</title>
+</head>
+
+<th:block layout:fragment="page_head">
+  <script type="text/javascript" th:src="@{/js/page/guestbook.js}"></script>
+</th:block>
+
+<body>
+<th:block layout:fragment="contents">
+  <!--<h1 class="h3 mb-4 text-gray-800">방명록</h1>-->
+  <form action="index.php" method="post">
+    <div class="form-group">
+      <textarea class="form-control" rows="3" id="txtComment" placeholder="짧은 인사말을 남겨보세요." name="coment" maxlength="500" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+</th:block>
+
+</body>
+</html>
