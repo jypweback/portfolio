@@ -5,7 +5,6 @@ import com.jypweback.portfolio.dto.board.BoardRequestDto;
 import com.jypweback.portfolio.dto.board.BoardResponseDto;
 import com.jypweback.portfolio.dto.board.BoardSearchDto;
 import com.jypweback.portfolio.service.BoardService;
-import org.json.JSONObject;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
