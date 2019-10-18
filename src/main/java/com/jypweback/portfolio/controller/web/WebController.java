@@ -7,6 +7,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
+/**
+ * Created by qkrwpdud1@gmail.com on 2019-10-08
+ * Github : http://github.com/jypweback
+ */
+
 @Controller
 @AllArgsConstructor
 public class WebController {
@@ -29,10 +34,16 @@ public class WebController {
     }
 
 
-    @GetMapping("/guestbook")
-    public String guestBook(Model model)
+    @GetMapping("/board")
+    public String board(Model model)
     {
-        return "view/guestbook";
+        return "view/board";
+    }
+
+    @GetMapping("/boards")
+    public String boardList(Model model)
+    {
+        return "view/board/list";
     }
 
 /*    @GetMapping("/blank")

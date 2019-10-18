@@ -1,5 +1,10 @@
 package com.jypweback.portfolio.entity.enums;
 
+/**
+ * Created by qkrwpdud1@gmail.com on 2019-10-11
+ * Github : http://github.com/jypweback
+ */
+
 public enum MemberRoleTypeEnum {
 
     ADMIN("ADMIN"),

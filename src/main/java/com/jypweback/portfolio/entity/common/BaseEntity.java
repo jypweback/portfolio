@@ -10,6 +10,11 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+/**
+ * Created by qkrwpdud1@gmail.com on 2019-10-11
+ * Github : http://github.com/jypweback
+ */
+
 
 @DynamicInsert
 @DynamicUpdate

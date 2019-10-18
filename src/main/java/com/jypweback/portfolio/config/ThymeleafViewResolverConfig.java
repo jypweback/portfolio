@@ -11,6 +11,10 @@ import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 
+/**
+ * Created by qkrwpdud1@gmail.com on 2019-10-08
+ * Github : http://github.com/jypweback
+ */
 
 @Configuration
 public class ThymeleafViewResolverConfig {

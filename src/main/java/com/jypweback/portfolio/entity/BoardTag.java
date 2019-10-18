@@ -15,12 +15,12 @@ import javax.persistence.*;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@Entity(name = "TBL_BOARD_REPLY")
-public class BoardReply extends BaseEntity {
+@Entity(name = "TBL_BOARD_TAG")
+public class BoardTag extends BaseEntity {
 
     @Builder
-    public BoardReply(String replyText, String creatorId){
-        this.replyText = replyText;
+    public BoardTag(String tagText, String creatorId){
+        this.tagText = tagText;
         this.creatorId = creatorId;
     }
 
@@ -33,7 +33,7 @@ public class BoardReply extends BaseEntity {
     private Board board;
 
     @Column(columnDefinition = "TEXT")
-    private String replyText;
+    private String tagText;
 
     @Column(length = 200)
     private String creatorId;
@@ -41,12 +41,18 @@ public class BoardReply extends BaseEntity {
     @Column(length = 200)
     private String editorId;
 
-    /* 연관관계 메소드 */
+    /** 연관관계 메소드 */
     public void setBoard(Board board){
         if(this.board != null){
-            this.board.getBoardReplies().remove(this);
+            this.board.getBoardTags().remove(this);
         }
 
         this.board = board;
     }
+
+    public void removeBoardTag(){
+        this.board.getBoardTags().remove(this);
+        this.board = null;
+    }
+
 }

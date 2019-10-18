@@ -6,6 +6,10 @@ import com.jypweback.portfolio.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * Created by qkrwpdud1@gmail.com on 2019-10-18
+ * Github : http://github.com/jypweback
+ */
 
 @Service
 public class MemberServiceImpl implements MemberService {

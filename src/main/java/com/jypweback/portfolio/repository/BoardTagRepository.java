@@ -1,17 +1,18 @@
 package com.jypweback.portfolio.repository;
 
-import com.jypweback.portfolio.entity.Board;
-import com.jypweback.portfolio.entity.Member;
+import com.jypweback.portfolio.entity.BoardTag;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
-
-import java.util.Optional;
 
 /**
  * Created by qkrwpdud1@gmail.com on 2019-10-16
  * Github : http://github.com/jypweback
  */
 
-public interface BoardRepository extends JpaRepository<Board, Long>, JpaSpecificationExecutor<Board>, CustomBoardRepository {
+public interface BoardTagRepository extends JpaRepository<BoardTag, Long>, JpaSpecificationExecutor<BoardTag> {
+
+    //public Optional<Board> findByUserId(String userId);
+
+    //public Optional<List<MultiTag>> findAllBy
 
 }

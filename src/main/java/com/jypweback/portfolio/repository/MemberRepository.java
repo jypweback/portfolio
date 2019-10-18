@@ -6,6 +6,11 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 import java.util.Optional;
 
+/**
+ * Created by qkrwpdud1@gmail.com on 2019-10-16
+ * Github : http://github.com/jypweback
+ */
+
 public interface MemberRepository extends JpaRepository<Member, Integer>, JpaSpecificationExecutor<Member> {
 
     public Optional<Member> findByUserId(String userId);

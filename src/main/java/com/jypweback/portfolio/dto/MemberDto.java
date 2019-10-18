@@ -6,6 +6,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * Created by qkrwpdud1@gmail.com on 2019-10-08
+ * Github : http://github.com/jypweback
+ */
+
 @Getter
 @Setter
 @NoArgsConstructor

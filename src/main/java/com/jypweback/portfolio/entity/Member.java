@@ -7,6 +7,11 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by qkrwpdud1@gmail.com on 2019-10-11
+ * Github : http://github.com/jypweback
+ */
+
 @Entity
 @Getter
 @ToString
