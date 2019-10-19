@@ -2,12 +2,14 @@ var boardMain = {
 
     formInit : function(){
         this.setDataBind();
+        this.setEvent();
     },
     setDataBind : function(){
         $('#dataTable').dataTable({
             bPaginate : true,
             processing: true,
             serverSide: false,
+            //pagingType : false,
             lengthMenu : [10,20,50],
             order: [[ 0, "desc" ]],
             ajax : {
@@ -27,7 +29,20 @@ var boardMain = {
                 {"data": "createDatetime"}
             ]
         });
+    },
+
+    setEvent : function(){
+        var table = $('#dataTable').DataTable();
+        $('#dataTable tbody').on('click', 'tr', function () {
+            var row = table.row( this ).data();
+            $(location).attr("href", "/boards/"+ row.id);
+        });
+
+        $("#btnSave").on("click", function(){
+            $(location).attr("href", "/boards/create");
+        });
     }
+
 }
 
 $(document).ready(function() {

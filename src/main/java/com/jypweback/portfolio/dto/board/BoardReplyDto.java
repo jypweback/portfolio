@@ -21,6 +21,7 @@ public class BoardReplyDto {
             this.boardId = reply.getBoard().getId();
         }
         this.replyText = reply.getReplyText();
+        this.creatorId = reply.getCreatorId();
     }
 
     private Long id;
@@ -30,8 +31,10 @@ public class BoardReplyDto {
     @NotBlank
     private String replyText;
 
+    private String creatorId;
+
     public BoardReply toEntity(){
-        return BoardReply.builder().replyText(replyText).build();
+        return BoardReply.builder().replyText(replyText).creatorId(this.creatorId).build();
     }
 
 }

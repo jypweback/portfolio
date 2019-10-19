@@ -1,50 +1,51 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{template/main-template.html}">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template/main-template.html}">
 
 <head>
 </head>
 <title>Board</title>
 
 <th:block layout:fragment="page_head">
-  <script type="text/javascript" th:src="@{/js/page/board/list.js}"></script>
+    <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-  <!-- Page level plugins -->
-  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-  <!-- Page level custom scripts -->
-  <script src="js/demo/datatables-demo.js"></script>
+    <!-- Page level custom scripts -->
+    <script type="text/javascript" th:src="@{/js/page/board/list.js}"></script>
 </th:block>
 
 <body>
 <th:block layout:fragment="contents">
-
-  <div class="card shadow mb-4">
-    <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">board</h6>
+    <div class="row">
+        <div class="col-md-6"></div>
+        <div class="col-md-6 text-right">
+            <button id="btnSave" type="button" class="btn btn-outline-primary mb-2">Register</button>
+        </div>
     </div>
-    <div class="card-body">
-      <div class="table-responsive">
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-          <colgroup>
-            <col width="10%"/>
-            <col width="50%" />
-            <col width="20%" />
-            <col width="20%" />
-          </colgroup>
-          <thead>
-          <tr>
-            <th>순서</th>
-            <th>제목</th>
-            <th>등록자</th>
-            <th>등록일자</th>
-          </tr>
-          </thead>
-        </table>
-      </div>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Board</h6>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="cursor:pointer" >
+                <colgroup>
+                    <col width="10%"/>
+                    <col width="*"/>
+                    <col width="20%"/>
+                    <col width="20%"/>
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>순서</th>
+                    <th>제목</th>
+                    <th>등록자</th>
+                    <th>등록일자</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
     </div>
-  </div>
-
 </th:block>
 
 </body>

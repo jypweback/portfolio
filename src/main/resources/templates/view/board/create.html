@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template/main-template.html}">
+
+<head>
+</head>
+<title>Board</title>
+
+<th:block layout:fragment="page_head">
+    <!-- Page level custom scripts -->
+    <script type="text/javascript" th:src="@{/js/page/board/create.js}"></script>
+</th:block>
+
+<body>
+<th:block layout:fragment="contents">
+
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <form id="boardForm">
+                    <table class="table table-bordered" width="100%" cellspacing="0">
+                        <colgroup>
+                            <col width="10%"/>
+                            <col width="*"/>
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th>제목</th>
+                            <td><input type="text" id="txtTitle" name="title" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <th>태그</th>
+                            <td><input type="text" id="txtTags" class="form-control" data-role="tagsinput"></td>
+                        </tr>
+                        <tr>
+                            <th>내용</th>
+                            <td><textarea id="txtBoardText" class="form-control" name="boardText" rows="5"></textarea></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+            <button id="btnSave" type="button" class="btn btn-outline-primary">Save</button>
+            <button id="btnCancel" type="button" class="btn btn-outline-primary">Cancel</button>
+        </div>
+    </div>
+
+</th:block>
+
+</body>
+</html>

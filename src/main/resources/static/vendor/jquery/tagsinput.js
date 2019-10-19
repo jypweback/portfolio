@@ -85,8 +85,10 @@
       }
 
       // Throw an error when trying to add an object while the itemValue option was not set
-      if (typeof item === "object" && !self.objectItems)
-        throw("Can't add objects when itemValue option is not set");
+      if (typeof item === "object" && !self.objectItems){
+        //throw("Can't add objects when itemValue option is not set");
+        item = $.trim(item.name);
+      }
 
       // Ignore strings only containg whitespace
       if (item.toString().match(/^\s*$/))

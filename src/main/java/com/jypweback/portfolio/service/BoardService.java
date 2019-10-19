@@ -1,9 +1,6 @@
 package com.jypweback.portfolio.service;
 
-import com.jypweback.portfolio.dto.board.BoardListDto;
-import com.jypweback.portfolio.dto.board.BoardRequestDto;
-import com.jypweback.portfolio.dto.board.BoardResponseDto;
-import com.jypweback.portfolio.dto.board.BoardSearchDto;
+import com.jypweback.portfolio.dto.board.*;
 import com.jypweback.portfolio.entity.Board;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,5 +21,7 @@ public interface BoardService {
     public BoardResponseDto updateBoard(Long id, BoardRequestDto reqDto);
 
     public Page<BoardListDto> searchBoardList(BoardSearchDto searchDto, Pageable pageable);
+
+    public BoardDto removeBoard(Long id);
 
 }

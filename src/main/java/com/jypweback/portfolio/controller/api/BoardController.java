@@ -1,9 +1,6 @@
 package com.jypweback.portfolio.controller.api;
 
-import com.jypweback.portfolio.dto.board.BoardListDto;
-import com.jypweback.portfolio.dto.board.BoardRequestDto;
-import com.jypweback.portfolio.dto.board.BoardResponseDto;
-import com.jypweback.portfolio.dto.board.BoardSearchDto;
+import com.jypweback.portfolio.dto.board.*;
 import com.jypweback.portfolio.service.BoardService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,7 +17,7 @@ import javax.validation.Valid;
  */
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/boards")
 public class BoardController {
 
     private final BoardService boardService;
@@ -29,26 +26,31 @@ public class BoardController {
         this.boardService = boardService;
     }
 
-    @PostMapping(value = "/board")
+    @PostMapping(value = "")
     public ResponseEntity<BoardResponseDto> createBoard(@Valid @RequestBody BoardRequestDto reqDto) {
-
         return ResponseEntity.ok(this.boardService.createBoard(reqDto));
     }
 
-    @GetMapping(value = "/board/{id}")
+    @GetMapping(value = "/{id}")
     public ResponseEntity<BoardResponseDto> getBoard(@PathVariable Long id) {
         return ResponseEntity.ok(this.boardService.getBoardDto(id));
     }
 
-    @PutMapping(value = "/board/{id}")
+    @PutMapping(value = "{id}")
     public ResponseEntity<BoardResponseDto> updateBoard(@PathVariable Long id, @Valid @RequestBody BoardRequestDto reqDto) {
         return ResponseEntity.ok(this.boardService.updateBoard(id, reqDto));
     }
 
-    @GetMapping(value = "/boards")
+    @DeleteMapping(value ="{id}")
+    public ResponseEntity<BoardDto> deleteBoard(@PathVariable Long id) {
+        return ResponseEntity.ok(this.boardService.removeBoard(id));
+    }
+
+    @GetMapping(value = "")
     public ResponseEntity<Page<BoardListDto>> searchBoardList(
             BoardSearchDto searchDto,
             @PageableDefault(sort = {"createDatetime"}, direction = Sort.Direction.DESC, size = 200) Pageable pageable){
         return ResponseEntity.ok(this.boardService.searchBoardList(searchDto, pageable));
     }
+
 }

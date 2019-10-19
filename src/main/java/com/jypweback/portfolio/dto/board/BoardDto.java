@@ -22,6 +22,7 @@ public class BoardDto {
         this.id = board.getId();
         this.title = board.getTitle();
         this.boardText = board.getBoardText();
+        this.creatorId = board.getCreatorId();
     }
 
     private Long id;
@@ -32,10 +33,13 @@ public class BoardDto {
     @NotBlank
     private String boardText;
 
+    private String creatorId;
+
     public Board toEntity(){
         return Board.builder()
                 .title(this.title)
                 .boardText(this.boardText)
+                .creatorId("default")
                 .build();
     }
 }

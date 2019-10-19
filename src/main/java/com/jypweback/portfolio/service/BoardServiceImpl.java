@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -53,7 +54,7 @@ public class BoardServiceImpl implements BoardService{
     @Override
     @Transactional(readOnly = true)
     public Board getBoard(Long id) {
-        return this.boardRepository.findById(id).orElseThrow(() -> new NullPointerException("Board " + id + " not found."));
+        return this.boardRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Board " + id + " not found."));
     }
 
     @Override
@@ -110,4 +111,13 @@ public class BoardServiceImpl implements BoardService{
         }
         return pageListDto;
     }
+
+    @Override
+    @Transactional
+    public BoardDto removeBoard(Long id) {
+        Board board = this.getBoard(id);
+        this.boardRepository.delete(board);
+        return new BoardDto(board);
+    }
+
 }
