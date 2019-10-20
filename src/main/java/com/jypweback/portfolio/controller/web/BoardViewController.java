@@ -47,4 +47,9 @@ public class BoardViewController {
         model.addAttribute("resDto", resDto);
         return "view/board/update";
     }
+
+    @GetMapping("/login")
+    public String login() {
+        return "view/board/login";
+    }
 }
