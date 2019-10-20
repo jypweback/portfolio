@@ -24,4 +24,9 @@ public class WebViewController {
     public String hello() {
         return "login";
     }
+
+    @GetMapping("/create")
+    public String test1() {
+        return "create";
+    }
 }
