@@ -52,4 +52,9 @@ public class BoardViewController {
     public String login() {
         return "view/board/login";
     }
+
+    @GetMapping("/test")
+    public String test() {
+        return "view/board/test";
+    }
 }
