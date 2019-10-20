@@ -6,15 +6,16 @@ branches:
   only:
     - master
 
-before_install:
-  - chmod +x mvnw
-#install: true
-#script: ./mvnw clean install
-
 # Travis CI 서버의 Home
 cache:
   directories:
     - $HOME/.m2
+
+before_install:
+  - chmod +x mvnw
+  - zip -r portfolio *
+  - mkdir -p deploy
+  - mv portfolio.zip deploy/portfolio.zip
 
 # CI 실행 완료시 메일로 알람
 notifications:
@@ -30,6 +31,7 @@ deploy:
     region: ap-northeast-2
     skip_cleanup: true
     acl: public_read
+    local_dir: deploy
     wait-until-deployed: true
     on:
       repo: jypweback/portfolio #Github 주소
