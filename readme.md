@@ -15,7 +15,7 @@
 
 
 ```
-개발예정
+미개발 항목
 1. 무중단 배포서비스(Ngnix)
 2. Spring Security
 3. Docker Redis
