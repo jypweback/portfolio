@@ -38,20 +38,15 @@
                             <div class="p-5">
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">환영합니다!</h1>
-
-                                    <span th:text="${question.title}"></span>
-
                                 </div>
-                                <form class="user" action="#" th:action="@{/authenticate}" method="post" th:object="${loginForm}">
-                                    <div class="form-group">
-                                        <input type="id" th:field="*{userId}" class="form-control form-control-user" placeholder="부여받은 ID를 입력해주세요.">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" th:field="*{userPassword}" class="form-control form-control-user"  id="exampleInputPassword" placeholder="패스워드를 입력해주세요.">
-                                    </div>
-                                    <input type="submit" value="Login" class="btn btn-primary btn-user btn-block" />
-                                    <!--<a href="index.html" class="btn btn-primary btn-user btn-block">Login</a>-->
-                                </form>
+                                <div class="form-group">
+                                    <input type="id" class="form-control form-control-user" placeholder="부여받은 ID를 입력해주세요.">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control form-control-user"  id="exampleInputPassword" placeholder="패스워드를 입력해주세요.">
+                                </div>
+                                <input type="submit" value="Login" class="btn btn-primary btn-user btn-block" />
+                                <!--<a href="index.html" class="btn btn-primary btn-user btn-block">Login</a>-->
                                 <hr>
                             </div>
                         </div>

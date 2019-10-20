@@ -19,4 +19,9 @@ public class WebViewController {
     public String create() {
         return "redirect:/boards";
     }
+
+    @GetMapping("/login")
+    public String hello() {
+        return "login";
+    }
 }
