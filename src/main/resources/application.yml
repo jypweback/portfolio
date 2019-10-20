@@ -24,10 +24,14 @@ spring:
         format_sql: true
 
   thymeleaf:
-    cache : true
+    cache : false
 
 logging:
+  file: logs/application.log
   level:
-    org:
-      hibernate:
-        type: trace
+    org.thymeleaf: DEBUG
+    org.springframework.web: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.quartz.core: DEBUG
+    org.h2.server.web: DEBUG
+  config: classpath:logback-access.xml
