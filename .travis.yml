@@ -17,6 +17,8 @@ before_install:
   - mkdir -p deploy
   - mv portfolio.zip deploy/portfolio.zip
 
+script: ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+
 # CI 실행 완료시 메일로 알람
 notifications:
   email:
