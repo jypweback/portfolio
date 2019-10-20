@@ -47,22 +47,4 @@ public class BoardViewController {
         model.addAttribute("resDto", resDto);
         return "view/board/update";
     }
-
-    @GetMapping("/login")
-    public String login() {
-        return "view/board/login";
-    }
-
-    @GetMapping("/test")
-    public String test() {
-        return "view/board/test";
-    }
-
-    @GetMapping("/detail/{id}")
-    public String detail_test(@PathVariable Long id, Model model) {
-        BoardResponseDto resDto = this.boardService.getBoardDto(id);
-        model.addAttribute("resDto", resDto);
-        model.addAttribute("newLineChar", '\n');
-        return "view/board/detail_test";
-    }
 }

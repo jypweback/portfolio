@@ -19,19 +19,4 @@ public class WebViewController {
     public String create() {
         return "redirect:/boards";
     }
-
-    @GetMapping("/login")
-    public String hello() {
-        return "login";
-    }
-
-    @GetMapping("/create")
-    public String test1() {
-        return "create";
-    }
-
-    @GetMapping("/tables")
-    public String tables() {
-        return "tables";
-    }
 }
