@@ -4,7 +4,7 @@
     <!--/* 타이틀 */-->
     <title layout:title-pattern="$LAYOUT_TITLE :: $CONTENT_TITLE">JypWeback</title>
     <!--/* 공통 Head */-->
-    <th:block th:replace="/fragment/head"></th:block>
+    <th:block th:replace="fragment/head"></th:block>
     <!--/* 개별 페이지 Head */-->
     <th:block layout:fragment="page_head"></th:block>
 </head>
@@ -16,7 +16,7 @@
 <div id="wrapper">
 
     <!-- Sidebar -->
-    <th:block th:include="/fragment/left"/>
+    <th:block th:include="fragment/left"/>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -29,7 +29,7 @@
                 <th:block layout:fragment="contents"></th:block>
             </div>
         </div>
-        <th:block th:include="/fragment/footer"/>
+        <th:block th:include="fragment/footer"/>
     </div>
     <!-- End of Main Content -->
 </div>
