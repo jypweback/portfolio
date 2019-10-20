@@ -6,11 +6,10 @@ branches:
   only:
     - master
 
-before_install:
-  - chmod +x mvnw
-
-install: true
-script: ./mvnw clean install
+#before_install:
+#  - chmod +x mvnw
+#install: true
+#script: ./mvnw clean install
 
 # Travis CI 서버의 Home
 cache:
