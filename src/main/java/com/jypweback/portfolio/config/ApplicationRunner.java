@@ -6,6 +6,7 @@ import com.jypweback.portfolio.entity.BoardTag;
 import com.jypweback.portfolio.repository.BoardRepository;
 import com.jypweback.portfolio.service.BoardService;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
+@Profile("test")
 public class ApplicationRunner implements CommandLineRunner {
 
     private BoardRepository boardRepository;
@@ -25,7 +27,7 @@ public class ApplicationRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        for(int i = 1; i <= 50; i++){
+        for(int i = 1; i <= 30; i++){
             Board board = Board.builder().title("제목" + i).boardText("본문내용" + i).creatorId("jypweback").build();
 
             for(int j = 1; j <= 2; j++){

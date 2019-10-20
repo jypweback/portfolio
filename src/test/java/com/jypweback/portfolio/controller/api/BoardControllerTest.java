@@ -52,7 +52,7 @@ public class BoardControllerTest extends AbstractTest{
         final int LOOP_MIN_NUM = 1;
         final int LOOP_MAX_NUM = 2;
 
-        final String URL = "/api/v1/board";
+        final String URL = "/api/v1/boards";
 
         BoardRequestDto reqDto = new BoardRequestDto();
 
@@ -89,7 +89,7 @@ public class BoardControllerTest extends AbstractTest{
 
         // given
         BoardRequestDto reqDto = new BoardRequestDto();
-        final String URL = "/api/v1/board";
+        final String URL = "/api/v1/boards";
 
         BoardDto boardDto = new BoardDto();
         reqDto.setBoardDto(boardDto);
@@ -112,7 +112,7 @@ public class BoardControllerTest extends AbstractTest{
 
         // given
         Board board = this.boardRepository.save(Board.builder().title("title").boardText("text").build());
-        final String URL = "/api/v1/board/" + board.getId();
+        final String URL = "/api/v1/boards/" + board.getId();
 
         // when
         ResultActions action = mvc.perform(MockMvcRequestBuilders.get(URL)
@@ -135,7 +135,7 @@ public class BoardControllerTest extends AbstractTest{
         final String text = "update text";
 
         Board board = this.boardRepository.save(Board.builder().title("title").boardText("text").build());
-        final String URL = "/api/v1/board/" + board.getId();
+        final String URL = "/api/v1/boards/" + board.getId();
 
         BoardRequestDto reqDto = new BoardRequestDto();
         BoardDto boardDto = new BoardDto();
@@ -165,11 +165,6 @@ public class BoardControllerTest extends AbstractTest{
         // given
         final String URL = "/api/v1/boards";
 
-        for(int i=1; i <= 50; i++){
-            Board board = Board.builder().boardText("text" + i).title("title" + i).build();
-            this.boardRepository.save(board);
-        }
-
         // when
         ResultActions action = mockMvc.perform(MockMvcRequestBuilders.get(URL)
                 .param("page", "0")
@@ -177,11 +172,7 @@ public class BoardControllerTest extends AbstractTest{
 
         // then
         action
-            .andExpect(status().isOk())
-            .andExpect(jsonPath("$.content[0].title").value("title50"))
-            .andExpect(jsonPath("$.content[0].boardText").value("text50"))
-            .andExpect(jsonPath("$.content[0].rowNumber").value("50"))
-            ;
+            .andExpect(status().isOk());
 
     }
 
