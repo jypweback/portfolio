@@ -8,12 +8,12 @@ branches:
 
 
 install: true
-script: "./mvnw clean install"
+script: ./mvnw clean install
 
 # Travis CI 서버의 Home
 cache:
   directories:
-    - '$HOME/.m2'
+    - $HOME/.m2
 
 # CI 실행 완료시 메일로 알람
 notifications:
