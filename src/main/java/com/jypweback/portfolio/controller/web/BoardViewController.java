@@ -57,4 +57,12 @@ public class BoardViewController {
     public String test() {
         return "view/board/test";
     }
+
+    @GetMapping("/detail/{id}")
+    public String detail_test(@PathVariable Long id, Model model) {
+        BoardResponseDto resDto = this.boardService.getBoardDto(id);
+        model.addAttribute("resDto", resDto);
+        model.addAttribute("newLineChar", '\n');
+        return "view/board/detail_test";
+    }
 }
