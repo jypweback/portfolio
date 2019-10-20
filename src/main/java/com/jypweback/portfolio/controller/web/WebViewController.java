@@ -29,4 +29,9 @@ public class WebViewController {
     public String test1() {
         return "create";
     }
+
+    @GetMapping("/tables")
+    public String tables() {
+        return "tables";
+    }
 }
