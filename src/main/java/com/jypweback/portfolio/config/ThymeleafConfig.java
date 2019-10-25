@@ -17,7 +17,7 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
  */
 
 @Configuration
-public class ThymeleafViewResolverConfig {
+public class ThymeleafConfig {
 
     @Value("${spring.thymeleaf.cache}")
     private boolean isCache;

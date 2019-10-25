@@ -17,7 +17,7 @@ public enum MemberRoleTypeEnum {
         this.roleName = roleName;
     }
 
-    public String getRoleName() {
+    public String getCode() {
         return this.roleName;
     }
 
@@ -27,7 +27,7 @@ public enum MemberRoleTypeEnum {
         }
 
         for (MemberRoleTypeEnum type : MemberRoleTypeEnum.values()) {
-            if (id.equals(type.getRoleName())) {
+            if (id.equals(type.getCode())) {
                 return type;
             }
         }

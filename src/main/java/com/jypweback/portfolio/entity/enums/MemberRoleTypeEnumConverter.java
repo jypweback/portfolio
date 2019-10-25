@@ -18,7 +18,7 @@ public class MemberRoleTypeEnumConverter implements AttributeConverter<MemberRol
 
     @Override
     public String convertToDatabaseColumn(MemberRoleTypeEnum attribute) {
-        return attribute != null ? attribute.getRoleName() : null;
+        return attribute != null ? attribute.getCode() : null;
     }
 }
 

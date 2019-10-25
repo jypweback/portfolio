@@ -13,8 +13,6 @@ import java.util.Optional;
 
 public interface MemberRepository extends JpaRepository<Member, Integer>, JpaSpecificationExecutor<Member> {
 
-    public Optional<Member> findByUserId(String userId);
-
-    public Optional<Member> findByUserIdAndUserPassword(String userId, String password);
+    public Optional<Member> findByUsername(String username);
 
 }

@@ -18,24 +18,24 @@ public class MemberDto {
 
     public MemberDto(Member member){
         this.id = member.getId();
-        this.userId = member.getUserId();
-        this.userPassword = member.getUserPassword();
-        this.userEmail = member.getUserEmail();
+        this.username = member.getUsername();
+        this.password = member.getPassword();
+        this.email = member.getEmail();
     }
 
     private Long id;
 
-    private String userId;
+    private String username;
 
-    private String userPassword;
+    private String password;
 
-    private String userEmail;
+    private String email;
 
     public Member toEntity(){
         return Member.builder()
-                .userId(this.userId)
-                .userPassword(this.userPassword)
-                .userEmail(this.userEmail)
+                .username(this.username)
+                .password(this.password)
+                .email(this.email)
                 .build();
     }
 }

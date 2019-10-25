@@ -2,10 +2,10 @@ package com.jypweback.portfolio.entity;
 
 import com.jypweback.portfolio.entity.common.BaseEntity;
 import lombok.*;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+
 
 /**
  * Created by qkrwpdud1@gmail.com on 2019-10-11
@@ -14,16 +14,16 @@ import java.util.List;
 
 @Entity
 @Getter
-@ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@EqualsAndHashCode(of = "userId")
+@EqualsAndHashCode(of = "username")
 public class Member extends BaseEntity {
 
     @Builder
-    public Member(String userId, String userPassword, String userEmail) {
-        this.userId = userId;
-        this.userPassword = userPassword;
-        this.userEmail = userEmail;
+    public Member(String username, String password, String email, String role) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.role = role;
     }
 
     @Id
@@ -31,18 +31,19 @@ public class Member extends BaseEntity {
     private Long id;
 
     @Column(nullable = false, unique = true, length = 50)
-    private String userId;
+    private String username;
 
     @Column(nullable = false, length = 200)
-    private String userPassword;
+    private String password;
 
     @Column(nullable = false, length = 50)
-    private String userEmail;
+    private String email;
 
-    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<MemberRole> roles = new ArrayList<MemberRole>();
+    @Column(length = 50)
+    private String role;
 
-    public void addRole(MemberRole role){
-        role.setMember(this);
+    public void encodePassword(PasswordEncoder encode){
+        this.password = encode.encode(this.password);
     }
+
 }
