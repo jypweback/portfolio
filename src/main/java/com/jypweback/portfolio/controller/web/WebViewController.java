@@ -15,8 +15,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class WebViewController {
+
     @GetMapping("/")
-    public String create() {
-        return "redirect:/boards";
+    public String root() {
+        return "view/login";
     }
+
+    @GetMapping("/login")
+    public String login() {
+        return "view/login";
+    }
+
 }

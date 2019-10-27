@@ -8,7 +8,9 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import sun.security.util.Password;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,14 +26,20 @@ public class MemberServiceImpl implements MemberService, UserDetailsService {
     @Autowired
     MemberRepository memberRepository;
 
+    @Autowired
+    PasswordEncoder encoder;
+
     @Override
     public MemberDto createMember(MemberDto memberDto) {
 
         Member member = Member.builder()
                 .username(memberDto.getUsername())
                 .password(memberDto.getPassword())
-                .email(memberDto.getEmail()).build();
+                .email(memberDto.getEmail())
+                .role(memberDto.getRole())
+                .build();
 
+        member.encodePassword(encoder);
         return new MemberDto(this.memberRepository.save(member));
     }
 
@@ -48,6 +56,5 @@ public class MemberServiceImpl implements MemberService, UserDetailsService {
                 .password(member.getPassword())
                 .roles(member.getRole())
                 .build();
-
     }
 }

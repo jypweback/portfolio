@@ -15,7 +15,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@EqualsAndHashCode(of = "username")
+@EqualsAndHashCode(of = "username", callSuper = false)
 public class Member extends BaseEntity {
 
     @Builder

@@ -21,6 +21,7 @@ public class MemberDto {
         this.username = member.getUsername();
         this.password = member.getPassword();
         this.email = member.getEmail();
+        this.role = member.getRole();
     }
 
     private Long id;
@@ -31,11 +32,14 @@ public class MemberDto {
 
     private String email;
 
+    private String role;
+
     public Member toEntity(){
         return Member.builder()
                 .username(this.username)
                 .password(this.password)
                 .email(this.email)
+                .role(this.role)
                 .build();
     }
 }
