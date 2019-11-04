@@ -1,4 +1,4 @@
-학습 및 개인 웹서비스 구축 [![Build Status](https://travis-ci.org/jypweback/portfolio.svg?branch=master)](https://travis-ci.org/jypweback/portfolio)
+[학습] CI/CD 환경 및 개인 웹서비스 구축 [![Build Status](https://travis-ci.org/jypweback/portfolio.svg?branch=master)](https://travis-ci.org/jypweback/portfolio)
 =============
 
 > 개발환경 BACK END
