@@ -30,8 +30,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
-        http.authorizeRequests().mvcMatchers("/","/login","/member/**","/api/**").permitAll();
+        http.authorizeRequests().anyRequest().permitAll();
+        http.csrf().disable();
     }
 
     @Override
