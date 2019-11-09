@@ -6,7 +6,7 @@
 
 
 ### Maven ###
-log/
+/log
 target/
 pom.xml.tag
 pom.xml.releaseBackup
