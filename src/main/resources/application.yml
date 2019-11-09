@@ -27,7 +27,12 @@ spring:
     cache : false
 
 logging:
+  file: ./log/local
   level:
     org:
       hibernate:
-        type : trace
+        type: trace
+
+server:
+  tomcat:
+    basedir: ./log/local
