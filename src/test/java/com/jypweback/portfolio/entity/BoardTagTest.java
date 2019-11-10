@@ -19,7 +19,7 @@ public class BoardTagTest {
 
     @Test
     public void 태그등록_테스트(){
-        BoardTag tag = this.tagRepository.save(BoardTag.builder().tagText("등록테스트").creatorId("jypweback").build());
+        BoardTag tag = this.tagRepository.save(BoardTag.builder().tagText("등록테스트").build());
         BoardTag newTag = this.tagRepository.findById(tag.getId()).get();
 
         assertThat(newTag.getCreatorId(), is("jypweback"));

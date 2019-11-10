@@ -24,7 +24,7 @@ public class BoardTest {
     @Test
     @Transactional
     public void 게시판등록_TEST(){
-        Board board = this.boardRepository.save(Board.builder().boardText("등록테스트").creatorId("jypweback").title("타이틀").build());
+        Board board = this.boardRepository.save(Board.builder().boardText("등록테스트").title("타이틀").build());
         Board newBoard = this.boardRepository.findById(board.getId()).get();
 
         assertThat(newBoard.getCreatorId(), is("jypweback"));
@@ -37,16 +37,16 @@ public class BoardTest {
         final int LOOP_MIN_NUM = 1;
         final int LOOP_MAX_NUM = 5;
 
-        Board board = Board.builder().boardText("등록테스트").creatorId("jypweback").title("타이틀").build();
+        Board board = Board.builder().boardText("등록테스트").title("타이틀").build();
 
         for(int i = LOOP_MIN_NUM; i <= LOOP_MAX_NUM; i++){
-            BoardTag tag = BoardTag.builder().tagText("태그" + i).creatorId("jypweback").build();
+            BoardTag tag = BoardTag.builder().tagText("태그" + i).build();
             board.addBoardTag(tag);
         }
 
         List<BoardReply> boardReplies = new ArrayList<BoardReply>() ;
         for(int i = LOOP_MIN_NUM; i <= LOOP_MAX_NUM; i++){
-            BoardReply reply = BoardReply .builder().replyText("댓글" + i).creatorId("jypweback").build();
+            BoardReply reply = BoardReply .builder().replyText("댓글" + i).build();
             boardReplies.add(reply);
         }
         board.setBoardReplies(boardReplies);

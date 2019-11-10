@@ -19,9 +19,8 @@ import javax.persistence.*;
 public class BoardReply extends BaseEntity {
 
     @Builder
-    public BoardReply(String replyText, String creatorId){
+    public BoardReply(String replyText){
         this.replyText = replyText;
-        this.creatorId = creatorId;
     }
 
     @Id
@@ -34,12 +33,6 @@ public class BoardReply extends BaseEntity {
 
     @Column(columnDefinition = "TEXT")
     private String replyText;
-
-    @Column(length = 200)
-    private String creatorId;
-
-    @Column(length = 200)
-    private String editorId;
 
     /* 연관관계 메소드 */
     public void setBoard(Board board){

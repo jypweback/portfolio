@@ -39,7 +39,6 @@ public class BoardDto {
         return Board.builder()
                 .title(this.title)
                 .boardText(this.boardText)
-                .creatorId("default")
                 .build();
     }
 }

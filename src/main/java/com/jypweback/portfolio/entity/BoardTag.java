@@ -19,9 +19,8 @@ import javax.persistence.*;
 public class BoardTag extends BaseEntity {
 
     @Builder
-    public BoardTag(String tagText, String creatorId){
+    public BoardTag(String tagText){
         this.tagText = tagText;
-        this.creatorId = creatorId;
     }
 
     @Id
@@ -34,12 +33,6 @@ public class BoardTag extends BaseEntity {
 
     @Column(columnDefinition = "TEXT")
     private String tagText;
-
-    @Column(length = 200)
-    private String creatorId;
-
-    @Column(length = 200)
-    private String editorId;
 
     /** 연관관계 메소드 */
     public void setBoard(Board board){

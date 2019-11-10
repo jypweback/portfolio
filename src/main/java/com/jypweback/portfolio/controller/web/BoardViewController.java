@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.security.Principal;
+
 /**
  * Created by qkrwpdud1@gmail.com on 2019-10-08
  * Github : http://github.com/jypweback
@@ -34,10 +36,11 @@ public class BoardViewController {
     }
 
     @GetMapping("/{id}")
-    public String detail(@PathVariable Long id, Model model) {
+    public String detail(@PathVariable Long id, Model model, Principal principal) {
         BoardResponseDto resDto = this.boardService.getBoardDto(id);
         model.addAttribute("resDto", resDto);
         model.addAttribute("newLineChar", '\n');
+        model.addAttribute("loginUserName", principal.getName());
         return "view/board/detail";
     }
 

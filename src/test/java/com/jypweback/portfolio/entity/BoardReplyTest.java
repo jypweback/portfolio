@@ -21,7 +21,7 @@ public class BoardReplyTest {
     @Test
     @Transactional
     public void 댓글등록_테스트(){
-        BoardReply reply = this.boardReplyRepository.save(BoardReply.builder().replyText("등록테스트").creatorId("jypweback").build());
+        BoardReply reply = this.boardReplyRepository.save(BoardReply.builder().replyText("등록테스트").build());
         BoardReply newReply = this.boardReplyRepository.findById(reply.getId()).get();
 
         assertThat(newReply.getCreatorId(), is("jypweback"));

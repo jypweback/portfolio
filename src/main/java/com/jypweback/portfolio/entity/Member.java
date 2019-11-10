@@ -41,12 +41,6 @@ public class Member extends BaseEntity {
     @Column(nullable = false, length = 50)
     private String role;
 
-    @Column(length = 200)
-    private String creatorId;
-
-    @Column(length = 200)
-    private String editorId;
-
     public void encodePassword(PasswordEncoder encode){
         this.password = encode.encode(this.password);
     }

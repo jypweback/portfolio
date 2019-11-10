@@ -23,10 +23,9 @@ import java.util.stream.Collectors;
 public class Board extends BaseEntity {
 
     @Builder
-    public Board(String title, String boardText, String creatorId){
+    public Board(String title, String boardText){
         this.title = title;
         this.boardText = boardText;
-        this.creatorId = creatorId;
     }
 
     @Id
@@ -38,12 +37,6 @@ public class Board extends BaseEntity {
 
     @Column(columnDefinition = "TEXT")
     private String boardText;
-
-    @Column(length = 200)
-    private String creatorId;
-
-    @Column(length = 200)
-    private String editorId;
 
     @OneToMany(mappedBy = "board", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BoardTag> boardTags;

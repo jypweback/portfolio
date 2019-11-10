@@ -29,7 +29,7 @@ public class ReplyServiceImpl implements ReplyService {
     @Transactional
     public BoardReplyDto addReply(Long boardId, String replyText) {
         Board board = boardService.getBoard(boardId);
-        BoardReply reply = BoardReply.builder().replyText(replyText).creatorId("default").build();
+        BoardReply reply = BoardReply.builder().replyText(replyText).build();
         board.addReply(reply);
         this.boardReplyRepository.save(reply);
 

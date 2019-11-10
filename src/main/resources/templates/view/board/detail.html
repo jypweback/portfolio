@@ -60,8 +60,11 @@
                         </table>
                     </div>
 
-                    <button id="btnUpdate" type="button" class="btn btn-outline-primary">Update</button>
-                    <button id="btnRemove" type="button" class="btn btn-outline-danger">Remove</button>
+                    <th:block th:if="${resDto.boardDto.creatorId.equals(loginUserName)}">
+                        <button id="btnUpdate" type="button" class="btn btn-outline-primary">Update</button>
+                        <button id="btnRemove" type="button" class="btn btn-outline-danger">Remove</button>
+                    </th:block>
+
                 </div>
             </div>
 
@@ -69,7 +72,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6"><p class="card-text" th:text="${replyDto.replyText}"></p></div>
-                        <div class="col-md-6 text-right">
+                        <div th:if="${replyDto.creatorId.equals(loginUserName)}" class="col-md-6 text-right">
                             <button name="replyRemove" type="button" class="btn btn-outline-danger" th:value="${replyDto.id}"><i class="fas fa-trash"></i></button>
                         </div>
                     </div>
@@ -78,7 +81,6 @@
                     </p>
                 </div>
             </div>
-
         </div>
         <!-- TAB1 END-->
 
@@ -106,6 +108,5 @@
         <!-- TAB2 END-->
     </div>
 </th:block>
-
 </body>
 </html>

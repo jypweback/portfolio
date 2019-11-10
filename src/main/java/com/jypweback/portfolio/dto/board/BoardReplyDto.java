@@ -34,7 +34,7 @@ public class BoardReplyDto {
     private String creatorId;
 
     public BoardReply toEntity(){
-        return BoardReply.builder().replyText(replyText).creatorId(this.creatorId).build();
+        return BoardReply.builder().replyText(replyText).build();
     }
 
 }
