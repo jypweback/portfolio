@@ -26,7 +26,14 @@ var boardMain = {
                 {"data": "rowNumber"},
                 {"data": "title"},
                 {"data": "creatorId"},
-                {"data": "createDatetime"}
+                {
+                    "data": "createDatetime",
+                    "render": function (data) {
+                        var date = new Date(data);
+                        var month = date.getMonth() + 1;
+                        return date.getFullYear() + "-" + (month.toString().length > 1 ? month : "0" + month) + "-" + date.getDate();
+                    }
+                }
             ]
         });
     },

@@ -15,7 +15,7 @@ import javax.persistence.*;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@Entity(name = "TBL_BOARD_REPLY")
+@Entity(name = "tbl_board_reply")
 public class BoardReply extends BaseEntity {
 
     @Builder

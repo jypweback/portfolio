@@ -12,10 +12,9 @@ import javax.persistence.*;
  * Github : http://github.com/jypweback
  */
 
-@Entity
-@Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@EqualsAndHashCode(of = "username", callSuper = false)
+@Getter
+@Entity(name = "tbl_member")
 public class Member extends BaseEntity {
 
     @Builder
@@ -27,20 +26,26 @@ public class Member extends BaseEntity {
     }
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true, length = 50)
+    @Column(nullable = false, length = 50)
     private String username;
 
     @Column(nullable = false, length = 200)
     private String password;
 
-    @Column(nullable = false, length = 50)
+    @Column(length = 50)
     private String email;
 
-    @Column(length = 50)
+    @Column(nullable = false, length = 50)
     private String role;
+
+    @Column(length = 200)
+    private String creatorId;
+
+    @Column(length = 200)
+    private String editorId;
 
     public void encodePassword(PasswordEncoder encode){
         this.password = encode.encode(this.password);

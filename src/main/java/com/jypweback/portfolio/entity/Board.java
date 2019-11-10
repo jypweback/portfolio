@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@Entity(name = "TBL_BOARD")
+@Entity(name = "tbl_board")
 public class Board extends BaseEntity {
 
     @Builder

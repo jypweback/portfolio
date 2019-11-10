@@ -18,7 +18,5 @@ public class MemberController {
     @GetMapping("/{role}/{username}/{password}")
     public MemberDto createMember(@ModelAttribute MemberDto memberDto){
         return this.memberService.createMember(memberDto);
-
     }
-
 }

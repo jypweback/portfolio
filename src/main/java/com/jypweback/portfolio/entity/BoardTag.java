@@ -15,7 +15,7 @@ import javax.persistence.*;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@Entity(name = "TBL_BOARD_TAG")
+@Entity(name = "tbl_board_tag")
 public class BoardTag extends BaseEntity {
 
     @Builder
@@ -54,5 +54,4 @@ public class BoardTag extends BaseEntity {
         this.board.getBoardTags().remove(this);
         this.board = null;
     }
-
 }
