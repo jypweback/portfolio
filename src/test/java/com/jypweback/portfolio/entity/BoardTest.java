@@ -27,7 +27,7 @@ public class BoardTest {
         Board board = this.boardRepository.save(Board.builder().boardText("등록테스트").title("타이틀").build());
         Board newBoard = this.boardRepository.findById(board.getId()).get();
 
-        assertThat(newBoard.getCreatorId(), is("jypweback"));
+        assertThat(newBoard.getBoardText(), is("등록테스트"));
     }
 
     @Test
@@ -55,7 +55,7 @@ public class BoardTest {
         Board savedBoard = this.boardRepository.findById(newBoard.getId()).get();
 
         // 작성자
-        assertThat(savedBoard.getCreatorId(), is("jypweback"));
+        assertThat(savedBoard.getBoardText(), is("등록테스트"));
 
         // 태그
         assertThat(savedBoard.getBoardTags().size(), is(LOOP_MAX_NUM));

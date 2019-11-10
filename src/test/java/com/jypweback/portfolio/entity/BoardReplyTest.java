@@ -24,6 +24,6 @@ public class BoardReplyTest {
         BoardReply reply = this.boardReplyRepository.save(BoardReply.builder().replyText("등록테스트").build());
         BoardReply newReply = this.boardReplyRepository.findById(reply.getId()).get();
 
-        assertThat(newReply.getCreatorId(), is("jypweback"));
+        assertThat(newReply.getReplyText(), is("등록테스트"));
     }
 }

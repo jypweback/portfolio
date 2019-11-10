@@ -22,7 +22,7 @@ public class BoardTagTest {
         BoardTag tag = this.tagRepository.save(BoardTag.builder().tagText("등록테스트").build());
         BoardTag newTag = this.tagRepository.findById(tag.getId()).get();
 
-        assertThat(newTag.getCreatorId(), is("jypweback"));
+        assertThat(newTag.getTagText(), is("등록테스트"));
     }
 
 }
