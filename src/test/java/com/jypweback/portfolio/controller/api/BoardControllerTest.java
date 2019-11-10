@@ -19,6 +19,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -115,7 +116,7 @@ public class BoardControllerTest extends AbstractTest{
         final String URL = "/api/v1/boards/" + board.getId();
 
         // when
-        ResultActions action = mvc.perform(MockMvcRequestBuilders.get(URL)
+        ResultActions action = mvc.perform(MockMvcRequestBuilders.get(URL).with(user("jypweback").roles("USER"))
                 .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print());
 
@@ -166,7 +167,7 @@ public class BoardControllerTest extends AbstractTest{
         final String URL = "/api/v1/boards";
 
         // when
-        ResultActions action = mockMvc.perform(MockMvcRequestBuilders.get(URL)
+        ResultActions action = mockMvc.perform(MockMvcRequestBuilders.get(URL).with(user("jypweback").roles("USER"))
                 .param("page", "0")
                 .param("size", "10")).andDo(print());
 

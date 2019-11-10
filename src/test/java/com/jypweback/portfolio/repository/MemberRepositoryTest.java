@@ -22,7 +22,7 @@ public class MemberRepositoryTest {
     @Test
     public void 사용자_등록(){
 
-        this.memberRepository.save(Member.builder().username("jypweback").password("password").email("jypweback@hunet.co.kr").build());
+        this.memberRepository.save(Member.builder().username("jypweback").password("password").email("jypweback@hunet.co.kr").role("USER").build());
 
         Member member = this.memberRepository.findByUsername("jypweback").get();
 
