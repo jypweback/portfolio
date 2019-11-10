@@ -3,7 +3,7 @@
 
 > 개발환경 BACK END
 - Spring Boot 2.1
-- Java 8, JPA, Rest API 
+- Java 8, JPA, Rest API, JUnit Test
 - Maven, Thymeleaf
 
 > 개발환경 FRONT
@@ -19,9 +19,7 @@
 
 1. 무중단 배포서비스(Ngnix)
 
-2. Spring Security
-
-3. Docker Redis
+2. Docker Redis
 ```
 
 
