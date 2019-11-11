@@ -7,10 +7,12 @@ var boardMain = {
     setDataBind : function(){
         $('#dataTable').dataTable({
             bPaginate : true,
+            bLengthChange : false,
+            bFilter : false,
             processing: true,
             serverSide: false,
             //pagingType : false,
-            lengthMenu : [10,20,50],
+            //lengthMenu : [10,20,50],
             order: [[ 0, "desc" ]],
             ajax : {
                 "url":"/api/v1/boards",
@@ -23,16 +25,17 @@ var boardMain = {
                 }
             },
             columns : [
-                {"data": "rowNumber"},
+                {"data": "rowNumber","className": "text-center"},
                 {"data": "title"},
-                {"data": "creatorId"},
+                {"data": "creatorId","className": "text-center"},
                 {
                     "data": "createDatetime",
                     "render": function (data) {
                         var date = new Date(data);
                         var month = date.getMonth() + 1;
-                        return date.getFullYear() + "-" + (month.toString().length > 1 ? month : "0" + month) + "-" + date.getDate();
-                    }
+                        return date.getFullYear() + "-" + (month.toString().length > 1 ? month : "0" + month) + "-" + (date.getDate().toString().length > 1 ? date.getDate() : "0" + date.getDate());
+                    },
+                    "className": "text-center"
                 }
             ]
         });

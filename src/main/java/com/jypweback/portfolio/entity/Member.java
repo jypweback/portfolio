@@ -2,9 +2,11 @@ package com.jypweback.portfolio.entity;
 
 import com.jypweback.portfolio.entity.common.BaseEntity;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 
 /**
@@ -40,6 +42,12 @@ public class Member extends BaseEntity {
 
     @Column(nullable = false, length = 50)
     private String role;
+
+    private LocalDateTime lastLoginDatetime;
+
+    public void updateLastLoginDateTIme(){
+        this.lastLoginDatetime = LocalDateTime.now();
+    }
 
     public void encodePassword(PasswordEncoder encode){
         this.password = encode.encode(this.password);

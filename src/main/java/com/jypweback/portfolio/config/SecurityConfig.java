@@ -1,9 +1,9 @@
 package com.jypweback.portfolio.config;
 
-import com.jypweback.portfolio.service.MemberService;
 import com.jypweback.portfolio.service.MemberServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.access.AccessDecisionManager;
 import org.springframework.security.access.AccessDecisionVoter;
@@ -20,6 +20,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler;
 import org.springframework.security.web.access.expression.WebExpressionVoter;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -39,6 +40,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private MemberServiceImpl memberService;
+
+    @Bean
+    public AuthenticationSuccessHandler successHandler(){
+        return new CustomAuthenticationSuccessHandler();
+    }
 
     public AccessDecisionManager accessDecisionManager(){
         RoleHierarchyImpl roleHierarchy = new RoleHierarchyImpl();
@@ -71,7 +77,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest()
                 .authenticated()
                 .accessDecisionManager(accessDecisionManager())
-                .and().formLogin().and().httpBasic();
+                .and().formLogin().successHandler(successHandler())
+                .and().httpBasic();
 
         http.formLogin()
                 .loginPage("/login")

@@ -28,6 +28,11 @@ public class BoardServiceImpl implements BoardService{
         this.boardRepository = boardRepository;
     }
 
+    /**
+     * 게시글 생성
+     * @param reqDto
+     * @return
+     */
     @Override
     @Transactional
     public BoardResponseDto createBoard(BoardRequestDto reqDto) {
@@ -45,18 +50,34 @@ public class BoardServiceImpl implements BoardService{
         return this.convertEntityToDto(this.boardRepository.save(board));
     }
 
+    /**
+     * 게시글 상세 검색
+     * @param id
+     * @return
+     */
     @Override
     @Transactional(readOnly = true)
     public BoardResponseDto getBoardDto(Long id) {
         return this.convertEntityToDto(this.getBoard(id));
     }
 
+    /**
+     * 게시글 엔티티 검색
+     * @param id
+     * @return
+     */
     @Override
     @Transactional(readOnly = true)
     public Board getBoard(Long id) {
         return this.boardRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Board " + id + " not found."));
     }
 
+    /**
+     * 게시글,태그 갱신
+     * @param id
+     * @param reqDto
+     * @return
+     */
     @Override
     @Transactional
     public BoardResponseDto updateBoard(Long id, BoardRequestDto reqDto) {
@@ -102,6 +123,12 @@ public class BoardServiceImpl implements BoardService{
         return resDto;
     }
 
+    /**
+     * 게시글 리스트 조회
+     * @param searchDto
+     * @param pageable
+     * @return
+     */
     @Override
     @Transactional(readOnly = true)
     public Page<BoardListDto> searchBoardList(BoardSearchDto searchDto, Pageable pageable) {
@@ -112,6 +139,11 @@ public class BoardServiceImpl implements BoardService{
         return pageListDto;
     }
 
+    /**
+     * 게시글 삭제
+     * @param id
+     * @return
+     */
     @Override
     @Transactional
     public BoardDto removeBoard(Long id) {
