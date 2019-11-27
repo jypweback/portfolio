@@ -9,6 +9,6 @@ import com.jypweback.portfolio.dto.MemberDto;
 
 public interface MemberService {
 
-    public MemberDto createMember(MemberDto memberDto);
+    MemberDto createMember(MemberDto memberDto);
 
 }

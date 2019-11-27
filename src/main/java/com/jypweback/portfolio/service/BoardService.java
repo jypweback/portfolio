@@ -12,16 +12,16 @@ import org.springframework.data.domain.Pageable;
 
 public interface BoardService {
 
-    public BoardResponseDto createBoard(BoardRequestDto reqDto);
+    BoardResponseDto createBoard(BoardRequestDto reqDto);
 
-    public BoardResponseDto getBoardDto(Long id);
+    BoardResponseDto getBoardDto(Long id);
 
-    public Board getBoard(Long id);
+    Board getBoard(Long id);
 
-    public BoardResponseDto updateBoard(Long id, BoardRequestDto reqDto);
+    BoardResponseDto updateBoard(Long id, BoardRequestDto reqDto);
 
-    public Page<BoardListDto> searchBoardList(BoardSearchDto searchDto, Pageable pageable);
+    Page<BoardListDto> searchBoardList(BoardSearchDto searchDto, Pageable pageable);
 
-    public BoardDto removeBoard(Long id);
+    BoardDto removeBoard(Long id);
 
 }

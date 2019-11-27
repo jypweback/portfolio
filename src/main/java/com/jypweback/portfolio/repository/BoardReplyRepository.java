@@ -13,7 +13,4 @@ import java.util.Optional;
  */
 
 public interface BoardReplyRepository extends JpaRepository<BoardReply, Long>, JpaSpecificationExecutor<BoardReply> {
-    
-    //public Optional<BoardReply> findByUserId(String userId);
-
 }

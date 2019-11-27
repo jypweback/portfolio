@@ -10,9 +10,4 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
  */
 
 public interface BoardTagRepository extends JpaRepository<BoardTag, Long>, JpaSpecificationExecutor<BoardTag> {
-
-    //public Optional<Board> findByUserId(String userId);
-
-    //public Optional<List<MultiTag>> findAllBy
-
 }

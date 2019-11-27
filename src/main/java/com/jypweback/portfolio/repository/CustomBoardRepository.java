@@ -12,6 +12,6 @@ import org.springframework.data.web.PageableDefault;
  */
 public interface CustomBoardRepository {
 
-    public Page<BoardListDto> findAllBoardListBySearchDto(BoardSearchDto searchDto, Pageable pageable);
+    Page<BoardListDto> findAllBoardListBySearchDto(BoardSearchDto searchDto, Pageable pageable);
 
 }

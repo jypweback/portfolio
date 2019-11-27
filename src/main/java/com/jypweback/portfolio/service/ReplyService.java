@@ -10,10 +10,10 @@ import com.jypweback.portfolio.entity.BoardReply;
 
 public interface ReplyService {
 
-    public BoardReplyDto addReply(Long boardId, String replyText);
+    BoardReplyDto addReply(Long boardId, String replyText);
 
-    public BoardReplyDto removeReply(Long id);
+    BoardReplyDto removeReply(Long id);
 
-    public BoardReply getReply(Long id) ;
+    BoardReply getReply(Long id) ;
 
 }
