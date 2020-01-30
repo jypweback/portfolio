@@ -38,7 +38,7 @@ public abstract class BaseEntity {
     @PrePersist
     protected void onPersist(){
 
-        if (!(SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken)) {
+        if (!(SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken) && SecurityContextHolder.getContext().getAuthentication() != null) {
 
             Authentication auth = (Authentication) SecurityContextHolder.getContext().getAuthentication();
             String username = null;
@@ -59,7 +59,7 @@ public abstract class BaseEntity {
     @PreUpdate
     protected void onUpdate(){
 
-        if (!(SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken)) {
+        if (!(SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken) && SecurityContextHolder.getContext().getAuthentication() != null) {
 
             Authentication auth = (Authentication) SecurityContextHolder.getContext().getAuthentication();
             String username = null;
