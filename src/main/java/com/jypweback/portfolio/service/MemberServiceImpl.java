@@ -10,10 +10,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import sun.security.util.Password;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by qkrwpdud1@gmail.com on 2019-10-18
