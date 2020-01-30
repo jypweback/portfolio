@@ -137,6 +137,7 @@ public class BoardServiceImpl implements BoardService{
             pageListDto = this.boardRepository.findAllBoardListBySearchDto(searchDto, pageable);
         }
         return pageListDto;
+
     }
 
     /**
