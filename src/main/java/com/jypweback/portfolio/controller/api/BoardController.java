@@ -51,7 +51,6 @@ public class BoardController {
             BoardSearchDto searchDto,
             @PageableDefault(sort = {"createDatetime"}, direction = Sort.Direction.DESC, size = 200) Pageable pageable){
         return ResponseEntity.ok(this.boardService.searchBoardList(searchDto, pageable));
-
-
+    }
 
 }
