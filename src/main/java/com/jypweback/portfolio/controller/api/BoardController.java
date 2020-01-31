@@ -53,4 +53,5 @@ public class BoardController {
         return ResponseEntity.ok(this.boardService.searchBoardList(searchDto, pageable));
     }
 
+
 }
